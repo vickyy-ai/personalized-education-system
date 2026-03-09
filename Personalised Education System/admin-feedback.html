@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Admin — View Feedback from users on the Personalized Education Recommendation System.">
+    <title>Admin — View Feedback</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+
+<body>
+
+    <div class="dashboard">
+        <!-- Admin Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-sidebar-header">
+                <h2>Admin</h2>
+            </div>
+            <nav class="admin-sidebar-nav">
+                <a href="admin-users.html">Manage User Profile</a>
+                <a href="admin-feedback.html" class="active">View Feedback</a>
+                <a href="logout.html" class="logout-link">Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <h1 class="admin-page-title">View Feedback</h1>
+            <div class="data-table-wrapper">
+                <table class="data-table" id="feedbackTable">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Rating</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody id="feedbackTableBody">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="database.js"></script>
+    <script>
+        // Check admin auth
+        if (!DB.isAdminLoggedIn()) {
+            window.location.href = 'admin-login.html';
+        }
+
+        async function loadFeedbacks() {
+            var feedbacks = await DB.getAllFeedbacks();
+            var tbody = document.getElementById('feedbackTableBody');
+            tbody.innerHTML = '';
+
+            if (feedbacks.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="3" style="text-align:center; padding:24px; color:#6b7280;">No feedback found.</td></tr>';
+                return;
+            }
+
+            feedbacks.forEach(function (f) {
+                var tr = document.createElement('tr');
+                tr.innerHTML =
+                    '<td>' + (f.email || '') + '</td>' +
+                    '<td>' + (f.rating || '') + '</td>' +
+                    '<td>' + (f.message || '') + '</td>';
+                tbody.appendChild(tr);
+            });
+        }
+
+        loadFeedbacks();
+    </script>
+</body>
+
+</html>

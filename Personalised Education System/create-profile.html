@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create your student profile on the Personalized Education Recommendation System.">
+    <title>Create Profile — Personalized Education Recommendation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+
+<body>
+
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
+                </div>
+                <div class="sidebar-email">sufiyanshaikh5500@gmail.com</div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="create-profile.html" class="active">Create Profile</a>
+                <a href="update-profile.html">Update Profile</a>
+                <a href="recommendations.html">Get Recommendations</a>
+                <a href="feedback.html">Give Feedback</a>
+                <a href="login.html" class="logout">Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div class="dashboard-card">
+                <h1>Create Profile</h1>
+                <form id="createProfileForm" onsubmit="handleCreateProfile(event)">
+                    <div class="profile-form-grid">
+                        <div class="form-group">
+                            <label for="firstName">First Name:</label>
+                            <input type="text" id="firstName" name="firstName" placeholder="Enter first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="middleName">Middle Name:</label>
+                            <input type="text" id="middleName" name="middleName" placeholder="Enter middle name">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name:</label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Enter last name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="Enter email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number:</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender:</label>
+                            <select id="gender" name="gender" required>
+                                <option value="" disabled selected>Select gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="education">Education:</label>
+                            <input type="text" id="education" name="education" placeholder="Enter education" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">Intrest/Goal:</label>
+                            <input type="text" id="interest" name="interest" placeholder="Enter interest/goal" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="skills">Skills:</label>
+                            <input type="text" id="skills" name="skills" placeholder="Enter skills" required>
+                        </div>
+                    </div>
+                    <div class="profile-submit-row">
+                        <button type="submit" class="profile-submit-btn">Create Profile</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="database.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

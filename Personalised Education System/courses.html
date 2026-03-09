@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Browse recommended courses on the Personalized Education Recommendation System — Web Development, Deep Learning, Data Analytics and more.">
+    <title>Courses — Personalized Education Recommendation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar--light" id="navbar">
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="courses.html" class="active">Courses</a>
+            <a href="login.html">Login</a>
+        </div>
+    </nav>
+
+    <!-- Courses Content -->
+    <main class="courses-page">
+        <div class="courses-header">
+            <h1>Courses</h1>
+        </div>
+        <div class="courses-grid">
+            <!-- Course 1 -->
+            <div class="course-card reveal">
+                <h3>Web Application Development: Basic Concepts</h3>
+                <div class="course-rating">Rating: 4.5</div>
+                <a href="https://www.coursera.org/learn/web-app" class="course-btn">View Course</a> target="_blank"
+            </div>
+            <!-- Course 2 -->
+            <div class="course-card reveal">
+                <h3>Deep Learning Inference with Azure ML Studio</h3>
+                <div class="course-rating">Rating: 4.7</div>
+                <a href="https://www.coursera.org/projects/deep-learning-inference-azure-ml-studio" class="course-btn">View Course</a> target="_blank"
+            </div>
+            <!-- Course 3 -->
+            <div class="course-card reveal">
+                <h3>Deep Learning for Business</h3>
+                <div class="course-rating">Rating: 4.3</div>
+                <a href="https://www.coursera.org/learn/deep-learning-business" class="course-btn">View Course</a> target="_blank"
+            </div>
+            <!-- Course 4 -->
+            <div class="course-card reveal">
+                <h3>Framework for Data Collection and Analysis</h3>
+                <div class="course-rating">Rating: 4.1</div>
+                <a href="https://www.coursera.org/learn/data-collection-framework" class="course-btn">View Course</a> target="_blank"
+            </div>
+            <!-- Course 5 -->
+            <div class="course-card reveal">
+                <h3>Programming Foundations with JavaScript, HTML and CSS</h3>
+                <div class="course-rating">Rating: 4.5</div>
+                <a href="https://www.coursera.org/learn/duke-programming-web" class="course-btn">View Course</a> target="_blank"
+            </div>
+            <!-- Course 6 -->
+            <div class="course-card reveal">
+                <h3>Introduction to Data Analytics</h3>
+                <div class="course-rating">Rating: 4.7</div>
+                <a href="https://www.coursera.org/learn/introduction-to-data-analytics" class="course-btn">View Course</a> target="_blank"
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="database.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

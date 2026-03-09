@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Personalized Education Recommendation System — Discover the most suitable learning paths and career-oriented educational domains based on your interests, skills, and educational background.">
+  <title>Personalized Education Recommendation System</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar--dark" id="navbar">
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" class="active">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="login.html">Login</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <img src="assets/hero-bg.png" alt="Personalized Education Recommendation" class="hero-bg">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Data-Driven Learning Paths
+      </div>
+      <h1>Personalized <span>Education</span><br>Recommendation</h1>
+      <p>Discover your ideal learning path through intelligent profile analysis. We match your interests, skills, and
+        background to the perfect educational domains and career opportunities.</p>
+      <div class="hero-buttons">
+        <a href="signup.html" class="btn-primary">Get Started →</a>
+        <a href="courses.html" class="btn-secondary">Explore Courses</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="arrow"></div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="stats-bar">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-number" data-target="50">0<span>+</span></div>
+        <div class="stat-label">Learning Domains</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number" data-target="1000">0<span>+</span></div>
+        <div class="stat-label">Students Guided</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number" data-target="95">0<span>%</span></div>
+        <div class="stat-label">Accuracy Rate</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number" data-target="200">0<span>+</span></div>
+        <div class="stat-label">Course Recommendations</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section" id="features">
+    <div class="section-header reveal">
+      <span class="section-tag">Platform Capabilities</span>
+      <h2>Intelligent Features for Smarter Learning Decisions</h2>
+      <p>Our platform uses structured profile analysis to connect students with the right educational paths and career
+        domains.</p>
+    </div>
+    <div class="features-grid">
+      <!-- Student Platform -->
+      <div class="feature-card reveal">
+        <div class="feature-icon">👤</div>
+        <h3>Student Platform</h3>
+        <p>Comprehensive tools for students to create profiles, log interests, and receive tailored learning
+          recommendations.</p>
+        <ul class="feature-list">
+          <li>Secure registration & login</li>
+          <li>Personal profile creation</li>
+          <li>Interest & skill input collection</li>
+          <li>Personalized path recommendations</li>
+          <li>Feedback & rating system</li>
+        </ul>
+      </div>
+      <!-- Recommendation Engine -->
+      <div class="feature-card reveal">
+        <div class="feature-icon">🧠</div>
+        <h3>Recommendation Engine</h3>
+        <p>Advanced analysis engine that evaluates your profile to suggest relevant career and learning domains.</p>
+        <ul class="feature-list">
+          <li>Interest & skill analysis</li>
+          <li>Education background mapping</li>
+          <li>Career domain suggestions</li>
+          <li>Structured educational mapping</li>
+          <li>Continuous improvement</li>
+        </ul>
+      </div>
+      <!-- Career Guidance -->
+      <div class="feature-card reveal">
+        <div class="feature-icon">🎯</div>
+        <h3>Career Guidance Support</h3>
+        <p>Helps students explore education paths aligned with their abilities and reduces uncertainty in domain
+          selection.</p>
+        <ul class="feature-list">
+          <li>Aligned education paths</li>
+          <li>Reduced course confusion</li>
+          <li>Long-term planning support</li>
+          <li>Multi-background support</li>
+          <li>Institutional integration</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-header reveal">
+      <span class="section-tag">How It Works</span>
+      <h2>Your Path to Personalized Learning</h2>
+      <p>Four simple steps to discover your ideal educational domain and career path.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-number">1</div>
+        <div class="step-connector"></div>
+        <h3>Create Your Profile</h3>
+        <p>Sign up and build your student profile with your educational background and personal details.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-number">2</div>
+        <div class="step-connector"></div>
+        <h3>Input Your Interests</h3>
+        <p>Share your interests, skills, and career aspirations so we can understand your strengths.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-number">3</div>
+        <div class="step-connector"></div>
+        <h3>Get Recommendations</h3>
+        <p>Our engine analyzes your profile and suggests the most relevant learning domains and courses.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-number">4</div>
+        <h3>Start Learning</h3>
+        <p>Explore recommended courses, provide feedback, and refine your personalized learning journey.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommendation Domains -->
+  <section class="domains-section" id="domains">
+    <div class="section-header reveal">
+      <span class="section-tag">Recommendation Categories</span>
+      <h2>Explore Learning Domains</h2>
+      <p>Our system recommends across multiple educational and career domains based on your unique profile.</p>
+    </div>
+    <div class="domains-grid">
+      <div class="domain-card reveal">
+        <div class="domain-icon">💻</div>
+        <h3>Programming & Software Development</h3>
+        <p>Web, Mobile, AI & ML</p>
+      </div>
+      <div class="domain-card reveal">
+        <div class="domain-icon">⚖️</div>
+        <h3>Law & Legal Studies</h3>
+        <p>Corporate, Criminal, Civil</p>
+      </div>
+      <div class="domain-card reveal">
+        <div class="domain-icon">⚽</div>
+        <h3>Sports & Fitness</h3>
+        <p>Coaching, Management, Science</p>
+      </div>
+      <div class="domain-card reveal">
+        <div class="domain-icon">🎨</div>
+        <h3>Arts & Design</h3>
+        <p>Visual, UX/UI, Graphic Design</p>
+      </div>
+      <div class="domain-card reveal">
+        <div class="domain-icon">📊</div>
+        <h3>Data Analytics</h3>
+        <p>Business Intelligence, Insights</p>
+      </div>
+      <div class="domain-card reveal">
+        <div class="domain-icon">🏥</div>
+        <h3>Healthcare</h3>
+        <p>Medical, Nursing, Public Health</p>
+      </div>
+      <div class="domain-card reveal">
+        <div class="domain-icon">💼</div>
+        <h3>Business & Management</h3>
+        <p>Marketing, Finance, Strategy</p>
+      </div>
+      <div class="domain-card reveal">
+        <div class="domain-icon">🔬</div>
+        <h3>Science & Research</h3>
+        <p>Physics, Chemistry, Biology</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Section -->
+  <section class="trust-section" id="trust">
+    <div class="trust-grid">
+      <div class="trust-content reveal">
+        <h2>Built on Trust,<br>Designed for Students</h2>
+        <p>Our platform is engineered with a data-driven backend, structured educational domain mapping, and secure
+          infrastructure to ensure every recommendation is relevant and practical.</p>
+        <div class="trust-points">
+          <div class="trust-point">
+            <span class="check">✓</span>
+            Structured user profile analysis for precise matching
+          </div>
+          <div class="trust-point">
+            <span class="check">✓</span>
+            Secure data storage for user accounts and profiles
+          </div>
+          <div class="trust-point">
+            <span class="check">✓</span>
+            Feedback system that continuously improves results
+          </div>
+          <div class="trust-point">
+            <span class="check">✓</span>
+            Designed for students from multiple educational backgrounds
+          </div>
+          <div class="trust-point">
+            <span class="check">✓</span>
+            Suitable for institutions and online learning platforms
+          </div>
+        </div>
+      </div>
+      <div class="trust-visual reveal">
+        <div class="trust-stat">
+          <div class="icon">🔒</div>
+          <div class="value">100%</div>
+          <div class="label">Secure Storage</div>
+        </div>
+        <div class="trust-stat">
+          <div class="icon">📈</div>
+          <div class="value">95%</div>
+          <div class="label">Accuracy Rate</div>
+        </div>
+        <div class="trust-stat">
+          <div class="icon">⭐</div>
+          <div class="value">4.8/5</div>
+          <div class="label">Student Rating</div>
+        </div>
+        <div class="trust-stat">
+          <div class="icon">🎓</div>
+          <div class="value">50+</div>
+          <div class="label">Learning Domains</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-box reveal">
+      <h2>Ready to Find Your Perfect Learning Path?</h2>
+      <p>Create your profile today and let our recommendation engine guide you toward the educational domain that
+        matches your strengths and aspirations.</p>
+      <a href="signup.html" class="btn-white">Create Your Profile →</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>🎓 Personalized Education</h3>
+        <p>A data-driven learning path recommendation system that analyzes user profiles to generate personalized
+          education and career guidance.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="login.html">Login</a>
+      </div>
+      <div class="footer-col">
+        <h4>Features</h4>
+        <a href="#features">Student Platform</a>
+        <a href="#features">Recommendation Engine</a>
+        <a href="#features">Career Guidance</a>
+        <a href="#domains">Learning Domains</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#">Help Center</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Personalized Education Recommendation System. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="database.js"></script>
+  <script src="script.js"></script>
+  <script type="text/javascript">
+    (function (l) {
+      if (l.search[1] === "/") {
+        var decoded = l.search
+          .slice(1)
+          .split("&")
+          .map(function (s) {
+            return s.replace(/~and~/g, "&");
+          })
+          .join("?");
+        window.history.replaceState(
+          null,
+          null,
+          l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    })(window.location);
+  </script>
+</body>
+
+</html>

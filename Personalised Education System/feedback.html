@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Submit your feedback on the Personalized Education Recommendation System.">
+    <title>Feedback — Personalized Education Recommendation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+
+<body>
+
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
+                </div>
+                <div class="sidebar-email">sufiyanshaikh5500@gmail.com</div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="create-profile.html">Create Profile</a>
+                <a href="update-profile.html">Update Profile</a>
+                <a href="recommendations.html">Get Recommendations</a>
+                <a href="feedback.html" class="active">Give Feedback</a>
+                <a href="login.html" class="logout">Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div class="dashboard-card feedback-card">
+                <h1>Feedback</h1>
+                <form id="feedbackForm" onsubmit="handleFeedback(event)">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Rating</label>
+                        <select id="rating" name="rating" required>
+                            <option value="" disabled selected>Select rating</option>
+                            <option value="Excellent">Excellent</option>
+                            <option value="Good">Good</option>
+                            <option value="Average">Average</option>
+                            <option value="Poor">Poor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedbackText">Your Feedback</label>
+                        <textarea id="feedbackText" name="feedbackText" placeholder="Write your feedback here..."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="feedback-submit-btn">Submit Feedback</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="database.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Login to the Personalized Education Recommendation System to access your learning path and personalized course recommendations.">
+    <title>Login — Personalized Education Recommendation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar--auth" id="navbar">
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="login.html" class="active">Login</a>
+        </div>
+    </nav>
+
+    <!-- Login Form -->
+    <main class="auth-page">
+        <div class="auth-card">
+            <h1>Login</h1>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <a href="forgot-password.html" class="forgot-link">Forget Password?</a>
+                <button type="submit" class="auth-btn">Login</button>
+            </form>
+            <div class="auth-footer">
+                Don't have an account? <a href="signup.html">Sign Up</a>
+            </div>
+            <a href="admin-login.html" class="admin-link">Admin Login</a>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="database.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

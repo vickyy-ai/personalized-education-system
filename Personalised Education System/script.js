@@ -410,14 +410,12 @@ function requireProfileForCourse(event, url) {
 
   var user = DB.getCurrentUser();
   if (!user) {
-    alert("You must be logged in to view this course.");
     window.location.href = 'login.html';
     return;
   }
 
   var profile = DB.getCurrentProfile();
   if (!profile) {
-    alert("Please create your profile first to access courses.");
     window.location.href = 'create-profile.html';
     return;
   }

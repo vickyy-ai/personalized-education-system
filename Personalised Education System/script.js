@@ -395,7 +395,75 @@ document.addEventListener('DOMContentLoaded', function () {
   if (document.getElementById('recGrid')) {
     renderRecommendations();
   }
+
+  // Render all courses page dynamically
+  if (document.getElementById('allCoursesGrid')) {
+    renderAllCourses();
+  }
 });
+
+// ---- Course Link Gating ----
+function requireProfileForCourse(event, url) {
+  event.preventDefault();
+  
+  if (typeof DB === 'undefined') return;
+
+  var user = DB.getCurrentUser();
+  if (!user) {
+    alert("You must be logged in to view this course.");
+    window.location.href = 'login.html';
+    return;
+  }
+
+  var profile = DB.getCurrentProfile();
+  if (!profile) {
+    alert("Please create your profile first to access courses.");
+    window.location.href = 'create-profile.html';
+    return;
+  }
+
+  // If user and profile exist, navigate to course in the same tab
+  window.location.href = url;
+}
+
+// ---- All Courses Page Rendering ----
+function renderAllCourses() {
+  var grid = document.getElementById('allCoursesGrid');
+  if (!grid) return;
+
+  var urlParams = new URLSearchParams(window.location.search);
+  var domainFilter = urlParams.get('domain');
+
+  var coursesToShow = [];
+
+  if (domainFilter) {
+    // Filter courses matching the domain keyword in tags
+    coursesToShow = COURSE_CATALOG.filter(function (course) {
+      return course.tags.some(function (tag) {
+        return tag.includes(domainFilter.toLowerCase()) || domainFilter.toLowerCase().includes(tag);
+      });
+    });
+  } else {
+    // Show all courses
+    coursesToShow = COURSE_CATALOG;
+  }
+
+  if (coursesToShow.length === 0) {
+    grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #6b7280;">No courses found for this domain.</div>';
+    return;
+  }
+
+  grid.innerHTML = '';
+  coursesToShow.forEach(function (course) {
+    var card = document.createElement('div');
+    card.className = 'course-card reveal visible';
+    card.innerHTML =
+      '<h3>' + course.title + '</h3>' +
+      '<div class="course-rating">Rating: ' + course.rating + '</div>' +
+      '<button class="course-btn" onclick="requireProfileForCourse(event, \'' + course.url + '\')">View Course</button>';
+    grid.appendChild(card);
+  });
+}
 
 // ---- Dynamic Course Recommendations ----
 var COURSE_CATALOG = [
@@ -488,7 +556,7 @@ function renderRecommendations() {
     card.innerHTML =
       '<h3>' + course.title + '</h3>' +
       '<div class="course-rating">Rating: ' + course.rating + '</div>' +
-      '<a href="' + course.url + '" target="_blank" class="course-btn">View Course</a>';
+      '<button class="course-btn" onclick="requireProfileForCourse(event, \'' + course.url + '\')">View Course</button>';
     grid.appendChild(card);
   });
 }

@@ -144,7 +144,51 @@ var DB = (function () {
     }
 
     async function deleteUser(userId) {
-        await supabaseClient.from('users').delete().eq('id', userId);
+        try {
+            // 1. Look up the user's email for feedback cleanup
+            const { data: user } = await supabaseClient
+                .from('users')
+                .select('email')
+                .eq('id', userId)
+                .single();
+
+            // 2. Delete feedbacks associated with this user's email
+            if (user && user.email) {
+                await supabaseClient.from('feedbacks').delete().eq('email', user.email);
+            }
+
+            // 3. Delete the user's profile
+            const { error: profileError } = await supabaseClient
+                .from('profiles')
+                .delete()
+                .eq('user_id', userId);
+
+            if (profileError) {
+                console.error('Error deleting profile:', profileError);
+                return { success: false, message: 'Failed to delete user profile: ' + profileError.message };
+            }
+
+            // 4. Delete the user record itself
+            const { error: userError } = await supabaseClient
+                .from('users')
+                .delete()
+                .eq('id', userId);
+
+            if (userError) {
+                console.error('Error deleting user:', userError);
+                return { success: false, message: 'Failed to delete user: ' + userError.message };
+            }
+
+            // 5. Clear session if the deleted user is the current user
+            if (getCurrentUser()?.id === userId) {
+                logout();
+            }
+
+            return { success: true, message: 'User and all associated data deleted successfully.' };
+        } catch (err) {
+            console.error('deleteUser error:', err);
+            return { success: false, message: 'An unexpected error occurred: ' + err.message };
+        }
     }
 
     async function createProfile(profileData) {
@@ -244,10 +288,15 @@ var DB = (function () {
     }
 
     async function deleteProfile(userId) {
-        await supabaseClient.from('profiles').delete().eq('user_id', userId);
+        const { error } = await supabaseClient.from('profiles').delete().eq('user_id', userId);
         if (getCurrentUser()?.id === userId) {
             sessionStorage.removeItem('pers_current_profile');
         }
+        if (error) {
+            console.error('Error deleting profile:', error);
+            return { success: false, message: error.message };
+        }
+        return { success: true };
     }
 
     async function submitFeedback(email, rating, message) {

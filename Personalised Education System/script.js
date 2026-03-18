@@ -437,10 +437,10 @@ function renderAllCourses() {
   var coursesToShow = [];
 
   if (domainFilter) {
-    // Filter courses matching the domain keyword in tags
+    // Filter courses matching EXACTLY the domain keyword
     coursesToShow = COURSE_CATALOG.filter(function (course) {
       return course.tags.some(function (tag) {
-        return tag.includes(domainFilter.toLowerCase()) || domainFilter.toLowerCase().includes(tag);
+        return tag.toLowerCase() === domainFilter.toLowerCase();
       });
     });
   } else {
@@ -467,28 +467,45 @@ function renderAllCourses() {
 
 // ---- Dynamic Course Recommendations ----
 var COURSE_CATALOG = [
-  // UI/UX & Design
-  { title: 'UX Design Fundamentals', rating: '4.7', url: 'https://www.coursera.org/learn/ux-design-fundamentals', tags: ['ui', 'ux', 'design', 'designing'] },
-  { title: 'Web Design: Strategy and Information Architecture', rating: '4.8', url: 'https://www.coursera.org/learn/web-design-strategy', tags: ['ui', 'ux', 'design', 'web'] },
-  { title: 'Introduction to User Experience Principles and Processes', rating: '4.7', url: 'https://www.coursera.org/learn/user-experience-principles', tags: ['ui', 'ux', 'design'] },
-  { title: 'Visual Elements of User Interface Design', rating: '4.5', url: 'https://www.coursera.org/learn/visual-elements-user-interface-design', tags: ['ui', 'design', 'designing'] },
-  { title: 'UI Design Capstone', rating: '4.4', url: 'https://www.coursera.org/learn/ui-design-capstone', tags: ['ui', 'design'] },
-  { title: 'Best Practices for iOS User Interface Design', rating: '4.5', url: 'https://www.coursera.org/learn/ios-ui-design', tags: ['ui', 'ios', 'mobile'] },
+  // Programming & Software Development ('programming')
+  { title: 'Full-Stack Web Development with React', rating: '4.8', url: 'https://www.coursera.org/specializations/full-stack-react', tags: ['programming', 'web', 'javascript', 'html', 'css'] },
+  { title: 'iOS App Development with Swift', rating: '4.7', url: 'https://www.coursera.org/specializations/app-development', tags: ['programming', 'mobile', 'ios', 'swift'] },
+  { title: 'Machine Learning Engineering for Production (MLOps)', rating: '4.8', url: 'https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops', tags: ['programming', 'ai', 'ml', 'machine learning'] },
 
-  // Programming & Web Development
-  { title: 'Web Application Development: Basic Concepts', rating: '4.5', url: 'https://www.coursera.org/learn/web-app', tags: ['web', 'programming', 'html', 'css', 'javascript'] },
-  { title: 'Programming Foundations with JavaScript, HTML and CSS', rating: '4.5', url: 'https://www.coursera.org/learn/duke-programming-web', tags: ['programming', 'html', 'css', 'javascript', 'web'] },
-  { title: 'Java Programming: Solving Problems with Software', rating: '4.6', url: 'https://www.coursera.org/learn/java-programming', tags: ['java', 'programming', 'software'] },
-  { title: 'Python for Everybody', rating: '4.8', url: 'https://www.coursera.org/specializations/python', tags: ['python', 'programming'] },
-  { title: 'Crash Course on Python', rating: '4.8', url: 'https://www.coursera.org/learn/crash-course-on-python', tags: ['python', 'programming'] },
+  // Law & Legal Studies ('law')
+  { title: 'Corporate & Commercial Law I', rating: '4.6', url: 'https://www.coursera.org/learn/corporate-commercial-law-part1', tags: ['law', 'corporate', 'business', 'legal'] },
+  { title: 'Introduction to Criminal Law', rating: '4.8', url: 'https://www.coursera.org/learn/criminal-law', tags: ['law', 'criminal', 'legal'] },
+  { title: 'European Civil Law: An Introduction', rating: '4.6', url: 'https://www.coursera.org/learn/european-civil-law', tags: ['law', 'civil', 'legal'] },
 
-  // AI & Data Science
-  { title: 'AI For Everyone', rating: '4.8', url: 'https://www.coursera.org/learn/ai-for-everyone', tags: ['ai', 'artificial intelligence'] },
-  { title: 'Deep Learning Inference with Azure ML Studio', rating: '4.7', url: 'https://www.coursera.org/projects/deep-learning-inference-azure-ml-studio', tags: ['ai', 'deep learning', 'machine learning'] },
-  { title: 'Deep Learning for Business', rating: '4.3', url: 'https://www.coursera.org/learn/deep-learning-business', tags: ['ai', 'deep learning', 'business'] },
-  { title: 'Introduction to Data Analytics', rating: '4.7', url: 'https://www.coursera.org/learn/introduction-to-data-analytics', tags: ['datascience', 'data', 'analytics', 'data analytics'] },
-  { title: 'Framework for Data Collection and Analysis', rating: '4.1', url: 'https://www.coursera.org/learn/data-collection-framework', tags: ['datascience', 'data', 'analytics'] },
-  { title: 'What is Data Science?', rating: '4.7', url: 'https://www.coursera.org/learn/what-is-datascience', tags: ['datascience', 'data science', 'data'] }
+  // Sports & Fitness ('sports')
+  { title: 'Science of Training Young Athletes', rating: '4.7', url: 'https://www.coursera.org/learn/science-of-training-young-athletes', tags: ['sports', 'coaching', 'fitness', 'training'] },
+  { title: 'Sports Marketing and Management', rating: '4.6', url: 'https://www.coursera.org/learn/sports-marketing', tags: ['sports', 'management', 'marketing', 'business'] },
+  { title: 'The Science of Exercise', rating: '4.8', url: 'https://www.coursera.org/learn/science-exercise', tags: ['sports', 'science', 'fitness', 'health'] },
+
+  // Arts & Design ('design')
+  { title: 'Visual Elements of User Interface Design', rating: '4.6', url: 'https://www.coursera.org/learn/visual-elements-user-interface-design', tags: ['design', 'visual', 'ui', 'interface'] },
+  { title: 'Google UX Design Professional Certificate', rating: '4.8', url: 'https://www.coursera.org/professional-certificates/google-ux-design', tags: ['design', 'ux', 'user experience', 'ui'] },
+  { title: 'Fundamentals of Graphic Design', rating: '4.8', url: 'https://www.coursera.org/learn/fundamentals-of-graphic-design', tags: ['design', 'graphic design', 'visual', 'art'] },
+
+  // Data Analytics ('analytics')
+  { title: 'Google Data Analytics Professional Certificate', rating: '4.8', url: 'https://www.coursera.org/professional-certificates/google-data-analytics', tags: ['analytics', 'data', 'data analytics'] },
+  { title: 'Business Intelligence and Data Warehousing', rating: '4.6', url: 'https://www.coursera.org/learn/business-intelligence-data-warehousing', tags: ['analytics', 'business intelligence', 'data'] },
+  { title: 'Data Visualization and Insights with Tableau', rating: '4.7', url: 'https://www.coursera.org/specializations/data-visualization', tags: ['analytics', 'insights', 'data analysis', 'visualization'] },
+
+  // Healthcare ('healthcare')
+  { title: 'Anatomy: Medical Neuroscience', rating: '4.9', url: 'https://www.coursera.org/learn/medical-neuroscience', tags: ['healthcare', 'medical', 'medicine', 'anatomy'] },
+  { title: 'Nursing Informatics', rating: '4.7', url: 'https://www.coursera.org/learn/nursing-informatics', tags: ['healthcare', 'nursing', 'health informatics'] },
+  { title: 'Essentials of Global Public Health', rating: '4.8', url: 'https://www.coursera.org/learn/global-health', tags: ['healthcare', 'public health', 'global health', 'medical'] },
+
+  // Business & Management ('business')
+  { title: 'Digital Marketing Specialization', rating: '4.7', url: 'https://www.coursera.org/specializations/digital-marketing', tags: ['business', 'marketing', 'digital marketing'] },
+  { title: 'Corporate Finance Essentials', rating: '4.8', url: 'https://www.coursera.org/learn/corporate-finance-essentials', tags: ['business', 'finance', 'corporate'] },
+  { title: 'Business Strategy: Competitive Advantage', rating: '4.8', url: 'https://www.coursera.org/learn/business-strategy', tags: ['business', 'strategy', 'management'] },
+
+  // Science & Research ('science')
+  { title: 'Understanding Einstein: The Special Theory of Relativity', rating: '4.8', url: 'https://www.coursera.org/learn/einstein-relativity', tags: ['science', 'physics'] },
+  { title: 'Introduction to Chemistry: Reactions and Ratios', rating: '4.7', url: 'https://www.coursera.org/learn/chemistry-1', tags: ['science', 'chemistry', 'research'] },
+  { title: 'Introduction to Genetics and Evolution', rating: '4.8', url: 'https://www.coursera.org/learn/genetics-evolution', tags: ['science', 'biology', 'evolution', 'genetics', 'research'] }
 ];
 
 function renderRecommendations() {

@@ -465,45 +465,141 @@ function renderAllCourses() {
 
 // ---- Dynamic Course Recommendations ----
 var COURSE_CATALOG = [
-  // Programming & Software Development ('programming')
-  { title: 'Full-Stack Web Development with React', rating: '4.8', url: 'https://www.coursera.org/specializations/full-stack-react', tags: ['programming', 'web', 'javascript', 'html', 'css'] },
-  { title: 'iOS App Development with Swift', rating: '4.7', url: 'https://www.coursera.org/specializations/app-development', tags: ['programming', 'mobile', 'ios', 'swift'] },
-  { title: 'Machine Learning Engineering for Production (MLOps)', rating: '4.8', url: 'https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops', tags: ['programming', 'ai', 'ml', 'machine learning'] },
+  // 1. Programming & Software Development
+  { title: 'Programming Basics (C, Python, Java)', rating: '4.7', url: '#', domain: 'Programming & Software Development', tags: ['c', 'python', 'java', 'programming', 'basics', 'beginner'] },
+  { title: 'HTML, CSS, JavaScript Fundamentals', rating: '4.8', url: '#', domain: 'Programming & Software Development', tags: ['html', 'css', 'javascript', 'web', 'frontend', 'beginner'] },
+  { title: 'Git & GitHub for Beginners', rating: '4.9', url: '#', domain: 'Programming & Software Development', tags: ['git', 'github', 'version control', 'beginner'] },
+  { title: 'Object Oriented Programming (OOP) Concepts', rating: '4.6', url: '#', domain: 'Programming & Software Development', tags: ['oop', 'object oriented', 'beginner'] },
+  { title: 'Data Structures (Basic)', rating: '4.7', url: '#', domain: 'Programming & Software Development', tags: ['data structures', 'dsa', 'beginner'] },
+  { title: 'Advanced Java / Python', rating: '4.8', url: '#', domain: 'Programming & Software Development', tags: ['java', 'python', 'advanced', 'intermediate'] },
+  { title: 'Frontend: React, Angular, Vue', rating: '4.7', url: '#', domain: 'Programming & Software Development', tags: ['frontend', 'react', 'angular', 'vue', 'web', 'intermediate'] },
+  { title: 'Backend: Node.js, Spring Boot, Django', rating: '4.8', url: '#', domain: 'Programming & Software Development', tags: ['backend', 'node.js', 'spring boot', 'django', 'web', 'intermediate'] },
+  { title: 'REST API Development', rating: '4.6', url: '#', domain: 'Programming & Software Development', tags: ['rest api', 'api', 'backend', 'intermediate'] },
+  { title: 'SQL & NoSQL Databases (MySQL, MongoDB)', rating: '4.7', url: '#', domain: 'Programming & Software Development', tags: ['sql', 'nosql', 'mysql', 'mongodb', 'database', 'intermediate'] },
+  { title: 'Mobile Dev: Flutter, React Native', rating: '4.8', url: '#', domain: 'Programming & Software Development', tags: ['mobile', 'flutter', 'react native', 'app dev', 'intermediate'] },
+  { title: 'DevOps Basics (CI/CD, Docker)', rating: '4.7', url: '#', domain: 'Programming & Software Development', tags: ['devops', 'ci/cd', 'docker', 'intermediate'] },
+  { title: 'System Design', rating: '4.9', url: '#', domain: 'Programming & Software Development', tags: ['system design', 'architecture', 'advanced'] },
+  { title: 'Microservices Architecture', rating: '4.8', url: '#', domain: 'Programming & Software Development', tags: ['microservices', 'architecture', 'advanced'] },
+  { title: 'Cloud Computing (AWS, Azure, GCP)', rating: '4.8', url: '#', domain: 'Programming & Software Development', tags: ['cloud', 'aws', 'azure', 'gcp', 'advanced'] },
+  { title: 'Kubernetes & Container Orchestration', rating: '4.9', url: '#', domain: 'Programming & Software Development', tags: ['kubernetes', 'containers', 'docker', 'orchestration', 'advanced'] },
+  { title: 'Cybersecurity & Ethical Hacking', rating: '4.8', url: '#', domain: 'Programming & Software Development', tags: ['cybersecurity', 'security', 'hacking', 'advanced'] },
+  { title: 'Network Engineering', rating: '4.7', url: '#', domain: 'Programming & Software Development', tags: ['network engineering', 'networking', 'advanced'] },
+  { title: 'AI/ML (TensorFlow, NLP, Deep Learning)', rating: '4.9', url: '#', domain: 'Programming & Software Development', tags: ['ai', 'ml', 'machine learning', 'tensorflow', 'nlp', 'deep learning', 'advanced'] },
+  { title: 'Blockchain Development', rating: '4.6', url: '#', domain: 'Programming & Software Development', tags: ['blockchain', 'crypto', 'web3', 'advanced'] },
+  { title: 'Performance Optimization', rating: '4.7', url: '#', domain: 'Programming & Software Development', tags: ['performance', 'optimization', 'advanced'] },
 
-  // Law & Legal Studies ('law')
-  { title: 'Corporate & Commercial Law I', rating: '4.6', url: 'https://www.coursera.org/learn/corporate-commercial-law-part1', tags: ['law', 'corporate', 'business', 'legal'] },
-  { title: 'Introduction to Criminal Law', rating: '4.8', url: 'https://www.coursera.org/learn/criminal-law', tags: ['law', 'criminal', 'legal'] },
-  { title: 'European Civil Law: An Introduction', rating: '4.6', url: 'https://www.coursera.org/learn/european-civil-law', tags: ['law', 'civil', 'legal'] },
+  // 2. Law & Legal Studies
+  { title: 'Introduction to Law', rating: '4.7', url: '#', domain: 'Law & Legal Studies', tags: ['law', 'introduction', 'beginner'] },
+  { title: 'Legal Terminology', rating: '4.6', url: '#', domain: 'Law & Legal Studies', tags: ['legal', 'terminology', 'beginner'] },
+  { title: 'Constitution Basics', rating: '4.8', url: '#', domain: 'Law & Legal Studies', tags: ['constitution', 'basics', 'beginner'] },
+  { title: 'Legal Research', rating: '4.7', url: '#', domain: 'Law & Legal Studies', tags: ['legal research', 'research', 'beginner'] },
+  { title: 'Corporate Law', rating: '4.8', url: '#', domain: 'Law & Legal Studies', tags: ['corporate law', 'corporate', 'intermediate'] },
+  { title: 'Criminal Law', rating: '4.9', url: '#', domain: 'Law & Legal Studies', tags: ['criminal law', 'criminal', 'intermediate'] },
+  { title: 'Civil Law', rating: '4.7', url: '#', domain: 'Law & Legal Studies', tags: ['civil law', 'civil', 'intermediate'] },
+  { title: 'Intellectual Property Rights', rating: '4.8', url: '#', domain: 'Law & Legal Studies', tags: ['ipr', 'intellectual property', 'intermediate'] },
+  { title: 'Cyber Law', rating: '4.9', url: '#', domain: 'Law & Legal Studies', tags: ['cyber law', 'cybersecurity', 'intermediate'] },
+  { title: 'International Law', rating: '4.8', url: '#', domain: 'Law & Legal Studies', tags: ['international law', 'global', 'advanced'] },
+  { title: 'Taxation Law', rating: '4.7', url: '#', domain: 'Law & Legal Studies', tags: ['taxation', 'tax law', 'advanced'] },
+  { title: 'Litigation Practice', rating: '4.8', url: '#', domain: 'Law & Legal Studies', tags: ['litigation', 'practice', 'advanced'] },
+  { title: 'Legal Drafting & Documentation', rating: '4.9', url: '#', domain: 'Law & Legal Studies', tags: ['drafting', 'documentation', 'advanced'] },
+  { title: 'Arbitration & Mediation', rating: '4.7', url: '#', domain: 'Law & Legal Studies', tags: ['arbitration', 'mediation', 'advanced'] },
+  { title: 'Compliance & Risk Management', rating: '4.8', url: '#', domain: 'Law & Legal Studies', tags: ['compliance', 'risk management', 'advanced'] },
 
-  // Sports & Fitness ('sports')
-  { title: 'Science of Training Young Athletes', rating: '4.7', url: 'https://www.coursera.org/learn/science-of-training-young-athletes', tags: ['sports', 'coaching', 'fitness', 'training'] },
-  { title: 'Sports Marketing and Management', rating: '4.6', url: 'https://www.coursera.org/learn/sports-marketing', tags: ['sports', 'management', 'marketing', 'business'] },
-  { title: 'The Science of Exercise', rating: '4.8', url: 'https://www.coursera.org/learn/science-exercise', tags: ['sports', 'science', 'fitness', 'health'] },
+  // 3. Sports & Fitness
+  { title: 'Fitness Fundamentals', rating: '4.7', url: '#', domain: 'Sports & Fitness', tags: ['fitness', 'fundamentals', 'beginner'] },
+  { title: 'Yoga Basics', rating: '4.8', url: '#', domain: 'Sports & Fitness', tags: ['yoga', 'basics', 'beginner'] },
+  { title: 'Nutrition Basics', rating: '4.7', url: '#', domain: 'Sports & Fitness', tags: ['nutrition', 'diet', 'basics', 'beginner'] },
+  { title: 'Basic Coaching Skills', rating: '4.6', url: '#', domain: 'Sports & Fitness', tags: ['coaching', 'skills', 'beginner'] },
+  { title: 'Strength Training', rating: '4.8', url: '#', domain: 'Sports & Fitness', tags: ['strength training', 'workout', 'intermediate'] },
+  { title: 'Sports Psychology', rating: '4.9', url: '#', domain: 'Sports & Fitness', tags: ['sports psychology', 'psychology', 'intermediate'] },
+  { title: 'Personal Training Certification', rating: '4.8', url: '#', domain: 'Sports & Fitness', tags: ['personal training', 'certification', 'intermediate'] },
+  { title: 'Injury Prevention', rating: '4.7', url: '#', domain: 'Sports & Fitness', tags: ['injury prevention', 'health', 'intermediate'] },
+  { title: 'Diet Planning', rating: '4.8', url: '#', domain: 'Sports & Fitness', tags: ['diet planning', 'nutrition', 'intermediate'] },
+  { title: 'Sports Management', rating: '4.9', url: '#', domain: 'Sports & Fitness', tags: ['sports management', 'management', 'advanced'] },
+  { title: 'Exercise Physiology', rating: '4.8', url: '#', domain: 'Sports & Fitness', tags: ['exercise physiology', 'science', 'advanced'] },
+  { title: 'Advanced Coaching Techniques', rating: '4.9', url: '#', domain: 'Sports & Fitness', tags: ['coaching', 'advanced'] },
+  { title: 'Rehabilitation Science', rating: '4.7', url: '#', domain: 'Sports & Fitness', tags: ['rehabilitation', 'science', 'advanced'] },
+  { title: 'Performance Analytics in Sports', rating: '4.8', url: '#', domain: 'Sports & Fitness', tags: ['performance analytics', 'data', 'advanced'] },
 
-  // Arts & Design ('design')
-  { title: 'Visual Elements of User Interface Design', rating: '4.6', url: 'https://www.coursera.org/learn/visual-elements-user-interface-design', tags: ['design', 'visual', 'ui', 'interface'] },
-  { title: 'Google UX Design Professional Certificate', rating: '4.8', url: 'https://www.coursera.org/professional-certificates/google-ux-design', tags: ['design', 'ux', 'user experience', 'ui'] },
-  { title: 'Fundamentals of Graphic Design', rating: '4.8', url: 'https://www.coursera.org/learn/fundamentals-of-graphic-design', tags: ['design', 'graphic design', 'visual', 'art'] },
+  // 4. Arts & Design
+  { title: 'Drawing & Sketching', rating: '4.7', url: '#', domain: 'Arts & Design', tags: ['drawing', 'sketching', 'art', 'beginner'] },
+  { title: 'Color Theory', rating: '4.8', url: '#', domain: 'Arts & Design', tags: ['color theory', 'design', 'beginner'] },
+  { title: 'Design Basics', rating: '4.6', url: '#', domain: 'Arts & Design', tags: ['design basics', 'basics', 'beginner'] },
+  { title: 'Photoshop Basics', rating: '4.9', url: '#', domain: 'Arts & Design', tags: ['photoshop', 'basics', 'beginner'] },
+  { title: 'Graphic Design (Illustrator, Canva)', rating: '4.8', url: '#', domain: 'Arts & Design', tags: ['graphic design', 'illustrator', 'canva', 'intermediate'] },
+  { title: 'UI/UX Design', rating: '4.9', url: '#', domain: 'Arts & Design', tags: ['ui', 'ux', 'user interface', 'user experience', 'design', 'intermediate'] },
+  { title: 'Animation Basics', rating: '4.7', url: '#', domain: 'Arts & Design', tags: ['animation', 'basics', 'intermediate'] },
+  { title: 'Video Editing', rating: '4.8', url: '#', domain: 'Arts & Design', tags: ['video editing', 'video', 'intermediate'] },
+  { title: 'Typography', rating: '4.7', url: '#', domain: 'Arts & Design', tags: ['typography', 'fonts', 'intermediate'] },
+  { title: 'Product Design', rating: '4.9', url: '#', domain: 'Arts & Design', tags: ['product design', 'advanced'] },
+  { title: 'Motion Graphics', rating: '4.8', url: '#', domain: 'Arts & Design', tags: ['motion graphics', 'animation', 'advanced'] },
+  { title: '3D Design (Blender)', rating: '4.9', url: '#', domain: 'Arts & Design', tags: ['3d design', 'blender', '3d modeling', 'advanced'] },
+  { title: 'Branding & Identity Design', rating: '4.8', url: '#', domain: 'Arts & Design', tags: ['branding', 'identity', 'design', 'advanced'] },
+  { title: 'Advanced UX Research', rating: '4.9', url: '#', domain: 'Arts & Design', tags: ['ux research', 'research', 'advanced'] },
+  { title: 'Game Design', rating: '4.8', url: '#', domain: 'Arts & Design', tags: ['game design', 'gaming', 'advanced'] },
 
-  // Data Analytics ('analytics')
-  { title: 'Google Data Analytics Professional Certificate', rating: '4.8', url: 'https://www.coursera.org/professional-certificates/google-data-analytics', tags: ['analytics', 'data', 'data analytics'] },
-  { title: 'Business Intelligence and Data Warehousing', rating: '4.6', url: 'https://www.coursera.org/learn/business-intelligence-data-warehousing', tags: ['analytics', 'business intelligence', 'data'] },
-  { title: 'Data Visualization and Insights with Tableau', rating: '4.7', url: 'https://www.coursera.org/specializations/data-visualization', tags: ['analytics', 'insights', 'data analysis', 'visualization'] },
+  // 5. Data Analytics
+  { title: 'Excel Basics', rating: '4.7', url: '#', domain: 'Data Analytics', tags: ['excel', 'spreadsheet', 'beginner'] },
+  { title: 'Data Visualization Basics', rating: '4.8', url: '#', domain: 'Data Analytics', tags: ['data visualization', 'basics', 'beginner'] },
+  { title: 'Statistics Fundamentals', rating: '4.6', url: '#', domain: 'Data Analytics', tags: ['statistics', 'math', 'beginner'] },
+  { title: 'SQL for Data Analysis', rating: '4.9', url: '#', domain: 'Data Analytics', tags: ['sql', 'data analysis', 'intermediate'] },
+  { title: 'Python (Pandas, NumPy)', rating: '4.8', url: '#', domain: 'Data Analytics', tags: ['python', 'pandas', 'numpy', 'data analysis', 'intermediate'] },
+  { title: 'Power BI / Tableau', rating: '4.9', url: '#', domain: 'Data Analytics', tags: ['power bi', 'tableau', 'visualization', 'intermediate'] },
+  { title: 'Data Cleaning & Wrangling', rating: '4.7', url: '#', domain: 'Data Analytics', tags: ['data cleaning', 'wrangling', 'intermediate'] },
+  { title: 'Machine Learning', rating: '4.9', url: '#', domain: 'Data Analytics', tags: ['machine learning', 'ml', 'ai', 'advanced'] },
+  { title: 'Big Data (Hadoop, Spark)', rating: '4.8', url: '#', domain: 'Data Analytics', tags: ['big data', 'hadoop', 'spark', 'advanced'] },
+  { title: 'Predictive Analytics', rating: '4.7', url: '#', domain: 'Data Analytics', tags: ['predictive analytics', 'prediction', 'advanced'] },
+  { title: 'Data Engineering', rating: '4.9', url: '#', domain: 'Data Analytics', tags: ['data engineering', 'engineering', 'advanced'] },
+  { title: 'AI for Data Analysis', rating: '4.8', url: '#', domain: 'Data Analytics', tags: ['ai', 'data analysis', 'advanced'] },
+  { title: 'Time Series Analysis', rating: '4.7', url: '#', domain: 'Data Analytics', tags: ['time series', 'analysis', 'advanced'] },
 
-  // Healthcare ('healthcare')
-  { title: 'Anatomy: Medical Neuroscience', rating: '4.9', url: 'https://www.coursera.org/learn/medical-neuroscience', tags: ['healthcare', 'medical', 'medicine', 'anatomy'] },
-  { title: 'Nursing Informatics', rating: '4.7', url: 'https://www.coursera.org/learn/nursing-informatics', tags: ['healthcare', 'nursing', 'health informatics'] },
-  { title: 'Essentials of Global Public Health', rating: '4.8', url: 'https://www.coursera.org/learn/global-health', tags: ['healthcare', 'public health', 'global health', 'medical'] },
+  // 6. Healthcare
+  { title: 'Human Anatomy', rating: '4.8', url: '#', domain: 'Healthcare', tags: ['human anatomy', 'anatomy', 'biology', 'beginner'] },
+  { title: 'Basic First Aid', rating: '4.9', url: '#', domain: 'Healthcare', tags: ['first aid', 'emergency', 'beginner'] },
+  { title: 'Nursing Basics', rating: '4.7', url: '#', domain: 'Healthcare', tags: ['nursing', 'basics', 'beginner'] },
+  { title: 'Public Health Intro', rating: '4.6', url: '#', domain: 'Healthcare', tags: ['public health', 'intro', 'beginner'] },
+  { title: 'Clinical Practices', rating: '4.8', url: '#', domain: 'Healthcare', tags: ['clinical practices', 'clinical', 'intermediate'] },
+  { title: 'Pharmacology', rating: '4.7', url: '#', domain: 'Healthcare', tags: ['pharmacology', 'drugs', 'intermediate'] },
+  { title: 'Medical Coding & Billing', rating: '4.8', url: '#', domain: 'Healthcare', tags: ['medical coding', 'billing', 'intermediate'] },
+  { title: 'Nutrition & Dietetics', rating: '4.9', url: '#', domain: 'Healthcare', tags: ['nutrition', 'dietetics', 'intermediate'] },
+  { title: 'Surgery Basics', rating: '4.8', url: '#', domain: 'Healthcare', tags: ['surgery', 'basics', 'advanced'] },
+  { title: 'Healthcare Management', rating: '4.9', url: '#', domain: 'Healthcare', tags: ['healthcare management', 'management', 'advanced'] },
+  { title: 'Epidemiology', rating: '4.7', url: '#', domain: 'Healthcare', tags: ['epidemiology', 'disease', 'advanced'] },
+  { title: 'Medical Research', rating: '4.8', url: '#', domain: 'Healthcare', tags: ['medical research', 'research', 'advanced'] },
+  { title: 'Hospital Administration', rating: '4.9', url: '#', domain: 'Healthcare', tags: ['hospital administration', 'administration', 'advanced'] },
+  { title: 'Telemedicine Systems', rating: '4.8', url: '#', domain: 'Healthcare', tags: ['telemedicine', 'systems', 'advanced'] },
 
-  // Business & Management ('business')
-  { title: 'Digital Marketing Specialization', rating: '4.7', url: 'https://www.coursera.org/specializations/digital-marketing', tags: ['business', 'marketing', 'digital marketing'] },
-  { title: 'Corporate Finance Essentials', rating: '4.8', url: 'https://www.coursera.org/learn/corporate-finance-essentials', tags: ['business', 'finance', 'corporate'] },
-  { title: 'Business Strategy: Competitive Advantage', rating: '4.8', url: 'https://www.coursera.org/learn/business-strategy', tags: ['business', 'strategy', 'management'] },
+  // 7. Business & Management
+  { title: 'Business Fundamentals', rating: '4.7', url: '#', domain: 'Business & Management', tags: ['business', 'fundamentals', 'beginner'] },
+  { title: 'Communication Skills', rating: '4.8', url: '#', domain: 'Business & Management', tags: ['communication', 'skills', 'beginner'] },
+  { title: 'Basics of Marketing', rating: '4.7', url: '#', domain: 'Business & Management', tags: ['marketing', 'basics', 'beginner'] },
+  { title: 'Introduction to Finance', rating: '4.6', url: '#', domain: 'Business & Management', tags: ['finance', 'introduction', 'beginner'] },
+  { title: 'Digital Marketing (SEO, SEM)', rating: '4.9', url: '#', domain: 'Business & Management', tags: ['digital marketing', 'seo', 'sem', 'intermediate'] },
+  { title: 'Financial Analysis', rating: '4.8', url: '#', domain: 'Business & Management', tags: ['financial analysis', 'finance', 'intermediate'] },
+  { title: 'HR Management', rating: '4.7', url: '#', domain: 'Business & Management', tags: ['hr', 'human resources', 'management', 'intermediate'] },
+  { title: 'Operations Management', rating: '4.8', url: '#', domain: 'Business & Management', tags: ['operations management', 'operations', 'intermediate'] },
+  { title: 'Entrepreneurship', rating: '4.9', url: '#', domain: 'Business & Management', tags: ['entrepreneurship', 'startup', 'intermediate'] },
+  { title: 'Strategic Management', rating: '4.8', url: '#', domain: 'Business & Management', tags: ['strategic management', 'strategy', 'advanced'] },
+  { title: 'Investment Banking', rating: '4.9', url: '#', domain: 'Business & Management', tags: ['investment banking', 'finance', 'advanced'] },
+  { title: 'Business Analytics', rating: '4.8', url: '#', domain: 'Business & Management', tags: ['business analytics', 'analytics', 'advanced'] },
+  { title: 'Leadership & Organizational Behavior', rating: '4.9', url: '#', domain: 'Business & Management', tags: ['leadership', 'organizational behavior', 'advanced'] },
+  { title: 'International Business', rating: '4.7', url: '#', domain: 'Business & Management', tags: ['international business', 'global', 'advanced'] },
+  { title: 'Product Management', rating: '4.8', url: '#', domain: 'Business & Management', tags: ['product management', 'product', 'advanced'] },
 
-  // Science & Research ('science')
-  { title: 'Understanding Einstein: The Special Theory of Relativity', rating: '4.8', url: 'https://www.coursera.org/learn/einstein-relativity', tags: ['science', 'physics'] },
-  { title: 'Introduction to Chemistry: Reactions and Ratios', rating: '4.7', url: 'https://www.coursera.org/learn/chemistry-1', tags: ['science', 'chemistry', 'research'] },
-  { title: 'Introduction to Genetics and Evolution', rating: '4.8', url: 'https://www.coursera.org/learn/genetics-evolution', tags: ['science', 'biology', 'evolution', 'genetics', 'research'] }
+  // 8. Science & Research
+  { title: 'Basic Physics, Chemistry, Biology', rating: '4.7', url: '#', domain: 'Science & Research', tags: ['physics', 'chemistry', 'biology', 'science', 'beginner'] },
+  { title: 'Scientific Methods', rating: '4.8', url: '#', domain: 'Science & Research', tags: ['scientific methods', 'science', 'beginner'] },
+  { title: 'Lab Techniques', rating: '4.6', url: '#', domain: 'Science & Research', tags: ['lab techniques', 'laboratory', 'beginner'] },
+  { title: 'Organic Chemistry', rating: '4.7', url: '#', domain: 'Science & Research', tags: ['organic chemistry', 'chemistry', 'intermediate'] },
+  { title: 'Genetics', rating: '4.8', url: '#', domain: 'Science & Research', tags: ['genetics', 'biology', 'intermediate'] },
+  { title: 'Thermodynamics', rating: '4.9', url: '#', domain: 'Science & Research', tags: ['thermodynamics', 'physics', 'intermediate'] },
+  { title: 'Environmental Science', rating: '4.8', url: '#', domain: 'Science & Research', tags: ['environmental science', 'environment', 'intermediate'] },
+  { title: 'Quantum Physics', rating: '4.9', url: '#', domain: 'Science & Research', tags: ['quantum physics', 'physics', 'advanced'] },
+  { title: 'Biotechnology', rating: '4.8', url: '#', domain: 'Science & Research', tags: ['biotechnology', 'biology', 'tech', 'advanced'] },
+  { title: 'Molecular Biology', rating: '4.9', url: '#', domain: 'Science & Research', tags: ['molecular biology', 'biology', 'advanced'] },
+  { title: 'Astrophysics', rating: '4.8', url: '#', domain: 'Science & Research', tags: ['astrophysics', 'physics', 'space', 'advanced'] },
+  { title: 'Research Methodology', rating: '4.7', url: '#', domain: 'Science & Research', tags: ['research methodology', 'research', 'advanced'] },
+  { title: 'Scientific Publishing', rating: '4.8', url: '#', domain: 'Science & Research', tags: ['scientific publishing', 'publishing', 'research', 'advanced'] }
 ];
 
 function renderRecommendations() {
@@ -517,55 +613,69 @@ function renderRecommendations() {
     return;
   }
 
-  // Extract keywords from skills and interests
-  var keywords = [];
-  if (profile.skills) {
-    keywords = keywords.concat(profile.skills.toLowerCase().split(',').map(function (s) { return s.trim(); }));
-  }
-  if (profile.interest) {
-    keywords = keywords.concat(profile.interest.toLowerCase().split(',').map(function (s) { return s.trim(); }));
-  }
+  var skillsKeywords = profile.skills ? profile.skills.toLowerCase().split(',').map(s => s.trim()).filter(s => s.length > 0) : [];
+  var domain = profile.interest ? profile.interest.trim() : '';
 
-  // Filter out empty strings
-  keywords = keywords.filter(function (k) { return k.length > 0; });
-
-  if (keywords.length === 0) {
+  if (skillsKeywords.length === 0 && !domain) {
     heading.textContent = 'Recommended Courses';
-    grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #6b7280;">Add skills and interests to your profile to see personalized recommendations.</div>';
+    grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #6b7280;">Add skills and select a domain to see personalized recommendations.</div>';
     return;
   }
 
-  // Match courses
-  var matchedCourses = [];
-  var addedUrls = new Set(); // Prevent duplicates
+  // 1. Filter courses by exact domain
+  var domainCourses = COURSE_CATALOG;
+  if (domain) {
+    domainCourses = COURSE_CATALOG.filter(course => course.domain === domain);
+  }
+  // If no courses match the selected domain (e.g. legacy data), use all
+  if (domainCourses.length === 0) domainCourses = COURSE_CATALOG;
 
-  COURSE_CATALOG.forEach(function (course) {
-    var isMatch = false;
-    course.tags.forEach(function (tag) {
-      keywords.forEach(function (keyword) {
-        if (tag.includes(keyword) || keyword.includes(tag)) {
-          isMatch = true;
+  // 2. Filter domainCourses by skills
+  var matchedCourses = [];
+  var addedUrls = new Set();
+  
+  if (skillsKeywords.length > 0) {
+    matchedCourses = domainCourses.filter(course => {
+      var courseText = (course.title + ' ' + course.tags.join(' ')).toLowerCase();
+      return skillsKeywords.some(skill => {
+        try {
+          // match whole word to avoid false positives (e.g. java vs javascript)
+          var regex = new RegExp('\\b' + skill.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i');
+          return regex.test(courseText);
+        } catch(e) {
+          // fallback if regex fails
+          return courseText.includes(skill);
         }
       });
     });
+  }
 
-    if (isMatch && !addedUrls.has(course.url)) {
-      matchedCourses.push(course);
-      addedUrls.add(course.url);
+  // 3. Fallbacks
+  if (matchedCourses.length === 0 && domainCourses.length > 0) {
+    // No specific skill match, but we have a domain -> show a few default courses from that domain
+    matchedCourses = domainCourses.slice(0, 3);
+    heading.textContent = 'Recommended courses based on your skills';
+  } else if (matchedCourses.length === 0) {
+    // Ultimate fallback
+    matchedCourses = COURSE_CATALOG.slice(0, 6);
+    heading.textContent = 'General Course Recommendations';
+  } else {
+    // We found specific matches
+    heading.textContent = 'Recommended courses based on your skills';
+  }
+
+  // Remove duplicates
+  var finalCourses = [];
+  matchedCourses.forEach(course => {
+    if (!addedUrls.has(course.title)) {
+      finalCourses.push(course);
+      addedUrls.add(course.title);
     }
   });
 
-  // If no matches, show fallback default assortment
-  if (matchedCourses.length === 0) {
-    heading.textContent = 'General Course Recommendations';
-    matchedCourses = COURSE_CATALOG.slice(0, 6); // Just show top 6
-  } else {
-    heading.textContent = 'Recommended courses for: "' + keywords.join(', ') + '"';
-  }
-
   // Render cards
   grid.innerHTML = '';
-  matchedCourses.forEach(function (course) {
+  finalCourses.forEach(function (course) {
     var card = document.createElement('div');
     card.className = 'course-card reveal visible';
     card.innerHTML =

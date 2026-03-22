@@ -12,7 +12,19 @@
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
 </head>
 
-<body>
+<body class="dashboard-page-with-nav">
+    <!-- Navigation -->
+    <nav class="navbar navbar--dashboard" id="navbar">
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="recommendations.html" class="active">Dashboard</a>
+        </div>
+    </nav>
 
     <div class="dashboard">
         <!-- Sidebar -->
@@ -31,7 +43,7 @@
                 <a href="update-profile.html">Update Profile</a>
                 <a href="recommendations.html" class="active">Get Recommendations</a>
                 <a href="feedback.html">Give Feedback</a>
-                <a href="login.html" class="logout">Logout</a>
+                <a href="logout.html" class="logout">Logout</a>
             </nav>
         </aside>
 

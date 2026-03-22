@@ -144,6 +144,12 @@ button {
   background: transparent;
 }
 
+.navbar.navbar--dashboard {
+  background: #1a252f;
+  box-shadow: var(--shadow-sm);
+  height: 70px;
+}
+
 .navbar.scrolled {
   background: rgba(15, 15, 35, 0.95);
   backdrop-filter: blur(12px);
@@ -171,7 +177,8 @@ button {
 }
 
 .navbar--dark .nav-links a,
-.navbar--auth .nav-links a {
+.navbar--auth .nav-links a,
+.navbar--dashboard .nav-links a {
   color: var(--white);
 }
 
@@ -191,7 +198,8 @@ button {
   border-radius: 1px;
 }
 
-.navbar--dark .nav-links a::after {
+.navbar--dark .nav-links a::after,
+.navbar--dashboard .nav-links a::after {
   background: var(--white);
 }
 
@@ -1209,9 +1217,13 @@ button {
 }
 
 /* ---- Dashboard Layout ---- */
+.dashboard-page-with-nav {
+  padding-top: 70px; 
+}
+
 .dashboard {
   display: flex;
-  min-height: 100vh;
+  min-height: calc(100vh - 70px);
 }
 
 /* Sidebar */
@@ -1224,7 +1236,7 @@ button {
   flex-direction: column;
   padding: 0;
   position: fixed;
-  top: 0;
+  top: 70px; /* Account for navbar */
   left: 0;
   bottom: 0;
   z-index: 100;
